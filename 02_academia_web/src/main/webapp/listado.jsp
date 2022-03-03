@@ -26,6 +26,6 @@
 		</c:forEach>
 	</table>
 	<br><br>
-	<a href="volver">Volver</a>
+	<a href="toVolver">Volver</a>
 </body>
 </html>

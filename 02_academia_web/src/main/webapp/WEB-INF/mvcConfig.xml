@@ -16,7 +16,7 @@
 	</bean>
 	
 	<!-- navegaciones estáticas -->
-	<mvc:view-controller path="volver" view-name="inicio"/>
-	<mvc:view-controller path="datos" view-name="datos"/>
-	<mvc:view-controller path="listado" view-name="listado"/>
+	<mvc:view-controller path="toInicio" view-name="inicio"/>
+	<mvc:view-controller path="toDatos" view-name="datos"/>
+	<mvc:view-controller path="toListado" view-name="listado"/>
 </beans>

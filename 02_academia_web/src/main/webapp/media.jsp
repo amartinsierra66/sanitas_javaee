@@ -9,6 +9,6 @@
 <body>
 	<h1>La nota media es: ${requestScope.media}</h1>
 	<br>
-	<a href="volver">Volver</a>
+	<a href="toVolver">Volver</a>
 </body>
 </html>

@@ -9,9 +9,9 @@
 </head>
 <body>
 	<center>
-		<h1><a href="datos">Nuevo alumno</a></h1>
+		<h1><a href="toDatos">Nuevo alumno</a></h1>
 		<h1><a href="media">Nota media</a></h1>
-		<h1><a href="listado">Alumnos de curso</a></h1>
+		<h1><a href="toLstado">Alumnos de curso</a></h1>
 		<br>
 		<c:if test="${! empty requestScope.mensaje}">
 			${requestScope.mensaje}
