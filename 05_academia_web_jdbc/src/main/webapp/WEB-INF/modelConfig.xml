@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+	
+	<!-- Habilitar la configuración por anotaciones -->
+	<context:annotation-config></context:annotation-config>
+	
+	<!-- Paquetes a escanear -->
+	<context:component-scan base-package="com.sanitas.service"></context:component-scan>
+
+	<!--datasource-->
+	<bean
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource" id="data">
+		<property name="driverClassName"
+			value="com.mysql.cj.jdbc.Driver">
+		</property>
+		<property name="url"
+			value="jdbc:mysql://localhost:3307/academia?serverTimezone=UTC">
+		</property>
+		<property name="username" value="root"></property>
+		<property name="password" value="root"></property>
+	</bean>
+	
+	<!-- JdbcTemplate -->
+	<bean class="org.springframework.jdbc.core.JdbcTemplate" id="templateMySQL">
+		<property name="dataSource" ref="data"></property>
+	</bean>
+</beans>
