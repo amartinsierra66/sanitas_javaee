@@ -1,5 +1,6 @@
 package com.sanitas.service;
 
+import java.util.Optional;
 import java.util.Set;
 
 import com.sanitas.model.Alumno;
@@ -22,7 +23,7 @@ public interface AlumnosService {
 
 	Alumno alumnoNotaMasAlta();
 
-	Alumno buscarAlumnoPorNombre(String nombre);
+	Optional<Alumno> buscarAlumnoPorNombre(String nombre);
 
 	Set<Alumno> alumnosCurso(String curso);
 	

@@ -36,9 +36,9 @@
 	<!-- configuración JPA -->
 	<bean id="factory"
 		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
-		<property name="persistenceUnitName" value="candidatosPU"></property>
+		<property name="persistenceUnitName" value="academiaPU"></property>
 		<property name="dataSource" ref="data"></property>
-		<property name="jpaVendorAdapter" ref="academia"></property>
+		<property name="jpaVendorAdapter" ref="adapter"></property>
 		<property name="packagesToScan" value="com.sanitas.model"></property>
 	</bean>
 	<!-- transaccionalidad -->

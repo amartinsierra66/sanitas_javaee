@@ -32,6 +32,10 @@ public class Alumno {
 		this.curso = curso;
 		this.nota = nota;
 	}
+	
+	public Alumno() {
+		super();
+	}
 
 	public int getIdAlumno() {
 		return idAlumno;
