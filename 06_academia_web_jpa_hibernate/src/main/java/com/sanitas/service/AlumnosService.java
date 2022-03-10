@@ -28,5 +28,7 @@ public interface AlumnosService {
 	Set<Alumno> alumnosCurso(String curso);
 	
 	boolean eliminarAlumnoPorId(int idAlumno);
+	
+	void eliminarAlumnosCurso(String curso);
 
 }

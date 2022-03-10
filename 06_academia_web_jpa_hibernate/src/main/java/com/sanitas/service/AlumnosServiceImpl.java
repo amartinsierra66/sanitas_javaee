@@ -7,6 +7,7 @@ import java.util.Set;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 
 import org.springframework.stereotype.Service;
@@ -32,8 +33,25 @@ public class AlumnosServiceImpl implements AlumnosService {
 
 	@Override
 	public double media() {
-		// TODO Auto-generated method stub
-		return 0;
+		//solucion 1
+		/*String jpql="select a from Alumno a";
+		TypedQuery<Alumno> tquery=entityManager.createQuery(jpql,Alumno.class);
+		return tquery.getResultList()
+				.stream()
+				.collect(Collectors.averagingDouble(a->a.getNota()));*/
+		
+		//solución 2
+		String jpql="select avg(a.nota) from Alumno a";
+		Query query=entityManager.createQuery(jpql);
+		List<Double> datos=(List<Double>)query.getResultList();
+		return (Double)datos.get(0);
+		
+		//solución 3
+		/*String sql="select avg(nota) from alumnos";
+		Query query=entityManager.createNativeQuery(sql);
+		List<Double> datos=(List<Double>)query.getResultList();
+		return (Double)datos.get(0);*/
+		
 	}
 
 	@Override
@@ -91,6 +109,14 @@ public class AlumnosServiceImpl implements AlumnosService {
 			return true;
 		}
 		return false;
+		
+	}
+	@Transactional(propagation = Propagation.REQUIRED)
+	@Override
+	public void eliminarAlumnosCurso(String curso) {
+		Query query=entityManager.createNamedQuery("Alumno.deleteByCurso");
+		query.setParameter(1, curso);
+		query.executeUpdate();
 		
 	}
 	

@@ -7,10 +7,12 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "alumnos")
+@NamedQuery(name = "Alumno.deleteByCurso",query = "delete from Alumno a where a.curso=?1")
 public class Alumno {
 	//@Column(name = "idAlumno")
 	@Id
