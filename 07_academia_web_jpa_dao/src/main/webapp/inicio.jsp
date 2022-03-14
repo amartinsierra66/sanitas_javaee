@@ -10,7 +10,7 @@
 <body>
 	<center>
 		<h1><a href="toDatos">Nuevo alumno</a></h1>
-		<h1><a href="media">Nota media</a></h1>
+		<!-- <h1><a href="media">Nota media</a></h1>-->
 		<h1><a href="toListado">Alumnos de curso</a></h1>
 		<br>
 		<c:if test="${! empty requestScope.mensaje}">

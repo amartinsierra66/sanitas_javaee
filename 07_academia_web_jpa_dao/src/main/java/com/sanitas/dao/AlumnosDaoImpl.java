@@ -52,7 +52,7 @@ public class AlumnosDaoImpl implements AlumnosDao {
 
 	@Override
 	public List<Alumno> findByCurso(String curso) {
-		String jpql="Select a from Alumno a where a.nombre=?1";
+		String jpql="Select a from Alumno a where a.curso=?1";
 		TypedQuery<Alumno> tquery=entityManager.createQuery(jpql,Alumno.class);
 		tquery.setParameter(1, curso);
 		return tquery.getResultList();

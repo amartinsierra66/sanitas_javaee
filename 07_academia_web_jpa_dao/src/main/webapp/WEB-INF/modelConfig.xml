@@ -11,7 +11,7 @@
 	<context:annotation-config></context:annotation-config>
 	
 	<!-- Paquetes a escanear -->
-	<context:component-scan base-package="com.sanitas.service"></context:component-scan>
+	<context:component-scan base-package="com.sanitas.service,com.sanitas.dao"></context:component-scan>
 
 	<!--datasource-->
 	<bean
