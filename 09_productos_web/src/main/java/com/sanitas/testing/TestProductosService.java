@@ -33,16 +33,16 @@ public class TestProductosService {
 	@BeforeEach
 	void init() {
 		service=new ProductosServiceImpl(dao);
-		when(dao.findAll())
+		lenient().when(dao.findAll())
 		.thenReturn(List.of(new Producto(1,"p1","sa",100,10),
 				new Producto(2,"p2","sa",20,5),
 				new Producto(3,"p3","sb",30,8),
 				new Producto(4,"p4","sc",50,2)));
 		/*when(dao.findById(1))
 		.thenReturn(new Producto(1,"p1","sa",100,10));*/
-		when(dao.findByNombre("p3"))
+		lenient().when(dao.findByNombre("p3"))
 		.thenReturn(new Producto(3,"p3","sb",30,8));
-		when(dao.findByNombre("none"))
+		lenient().when(dao.findByNombre("none"))
 		.thenReturn(null);
 		lenient().when(dao.findBySeccion("sa"))
 		.thenReturn(List.of(new Producto(1,"p1","sa",100,10),

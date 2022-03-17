@@ -13,21 +13,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 @EnableWebMvc
 @ComponentScan(basePackages = "com.sanitas.controller")
 public class MvcConfig implements WebMvcConfigurer{
-	@Bean
-	public InternalResourceViewResolver resolver() {
-		InternalResourceViewResolver resolver=new InternalResourceViewResolver();
-		resolver.setPrefix("/");
-		resolver.setSuffix(".jsp");
-		return resolver;
-	}
-	//registro de las navegaciones estáticas
-	@Override
-	public void addViewControllers(ViewControllerRegistry registry) {
-		registry.addViewController("/").setViewName("inicio");
-		registry.addViewController("toInicio").setViewName("inicio");
-		registry.addViewController("toDatos").setViewName("datos");
-		registry.addViewController("toListado").setViewName("listado");
-	}
+	
 	
 	//registro de los recursos estaticos (imagenes, videos, documentos,...)
 	@Override
