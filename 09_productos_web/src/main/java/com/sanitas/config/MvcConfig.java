@@ -14,7 +14,6 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 @ComponentScan(basePackages = "com.sanitas.controller")
 public class MvcConfig implements WebMvcConfigurer{
 	
-	
 	//registro de los recursos estaticos (imagenes, videos, documentos,...)
 	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
