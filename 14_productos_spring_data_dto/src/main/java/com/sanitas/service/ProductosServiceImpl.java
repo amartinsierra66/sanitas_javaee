@@ -7,10 +7,14 @@ import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.sanitas.converters.ProductoConverter;
 import com.sanitas.dao.ProductosDao;
+import com.sanitas.dto.ProductoDto;
 import com.sanitas.model.Producto;
 @Service
 public class ProductosServiceImpl implements ProductosService {
+	@Autowired
+	ProductoConverter productoConverter;
 	
 	ProductosDao productosDao;
 	
@@ -18,23 +22,27 @@ public class ProductosServiceImpl implements ProductosService {
 		this.productosDao=productosDao;
 	}
 	@Override
-	public int altaProducto(Producto producto) {
-		productosDao.save(producto);
+	public int altaProducto(ProductoDto producto) {
+		productosDao.save(productoConverter.dtoToProducto(producto));
 		return producto.getStock();
 	}
 
 	@Override
-	public List<Producto> productosSeccion(String seccion) {
+	public List<ProductoDto> productosSeccion(String seccion) {
+		List<Producto> productos;
 		if(seccion==null||seccion.equals("")) {
-			return productosDao.findAll();
+			productos= productosDao.findAll();
 		}else {
-			return productosDao.findBySeccion(seccion);
+			productos= productosDao.findBySeccion(seccion);
 		}
+		return productos.stream()
+				.map(p->productoConverter.productoToDto(p))
+				.collect(Collectors.toList());
 	}
 
 	@Override
-	public Optional<Producto> obtenerProducto(String nombre) {
-		return Optional.ofNullable(productosDao.findByNombre(nombre));
+	public Optional<ProductoDto> obtenerProducto(String nombre) {
+		return Optional.ofNullable(productoConverter.productoToDto(productosDao.findByNombre(nombre)));
 	}
 
 	@Override

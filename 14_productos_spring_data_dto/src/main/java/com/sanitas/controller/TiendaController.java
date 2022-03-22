@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.sanitas.dto.ProductoDto;
 import com.sanitas.model.Producto;
 import com.sanitas.service.ProductosService;
 
@@ -25,18 +26,18 @@ public class TiendaController {
 		this.productosService=productosService;
 	}
 	@PostMapping(value="alta",produces=MediaType.TEXT_PLAIN_VALUE)
-	public @ResponseBody String alta(@ModelAttribute Producto producto) {	
+	public @ResponseBody String alta(@ModelAttribute ProductoDto producto) {	
 		return "stock actual: "+productosService.altaProducto(producto);
 	}
 	
 	
 	@GetMapping(value="buscar", produces=MediaType.APPLICATION_JSON_VALUE)
-	public @ResponseBody Producto buscarProducto(@RequestParam("nombre") String nombre) {
-		Optional<Producto> res=productosService.obtenerProducto(nombre);
+	public @ResponseBody ProductoDto buscarProducto(@RequestParam("nombre") String nombre) {
+		Optional<ProductoDto> res=productosService.obtenerProducto(nombre);
 		return res.isEmpty()?null:res.get();
 	}
 	@GetMapping(value="productos", produces=MediaType.APPLICATION_JSON_VALUE)
-	public @ResponseBody List<Producto> productosSeccion(@RequestParam("seccion") String seccion){
+	public @ResponseBody List<ProductoDto> productosSeccion(@RequestParam("seccion") String seccion){
 		return productosService.productosSeccion(seccion);
 	}
 	
