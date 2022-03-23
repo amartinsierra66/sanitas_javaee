@@ -15,7 +15,7 @@ import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 @PropertySource("classpath:com/sanitas/config/application.properties")
 @EnableTransactionManagement
-@ComponentScan(basePackages = {"com.sanitas.service"})
+@ComponentScan(basePackages = {"com.sanitas.service","com.sanitas.converters"})
 @EnableJpaRepositories(basePackages = {"com.sanitas.dao"}, 
 						entityManagerFactoryRef = "factory",
 						transactionManagerRef = "txManager")

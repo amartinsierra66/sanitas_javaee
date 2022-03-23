@@ -20,6 +20,7 @@ public class ProductoConverterImpl implements ProductoConverter {
 		if(dto==null) {
 			return null;
 		}
+		
 		return new Producto(0,dto.getProducto(),dto.getCategoria(),dto.getPrecio(),dto.getStock());
 	}
 
