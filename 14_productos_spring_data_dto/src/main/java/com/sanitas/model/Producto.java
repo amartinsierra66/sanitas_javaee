@@ -8,8 +8,17 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
+
 @Entity
 @Table(name="productos")
+@AllArgsConstructor
+@Getter
+@Setter
 public class Producto {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,7 +27,7 @@ public class Producto {
 	private String seccion;
 	private double precio;
 	private int stock;
-	public Producto(int idProducto, String nombre, String seccion, double precio, int stock) {
+	/*public Producto(int idProducto, String nombre, String seccion, double precio, int stock) {
 		super();
 		this.idProducto = idProducto;
 		this.nombre = nombre;
@@ -60,7 +69,7 @@ public class Producto {
 	public void setStock(int stock) {
 		this.stock = stock;
 	}
-
+*/
 	@Override
 	public int hashCode() {
 		return Objects.hash(idProducto);
