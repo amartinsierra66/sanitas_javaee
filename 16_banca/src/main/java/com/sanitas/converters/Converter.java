@@ -9,6 +9,7 @@ import com.sanitas.model.Movimiento;
 
 public interface Converter {
 	ClienteDto clienteToDto(Cliente cliente);
+	ClienteDto clienteToDtoSimple(Cliente cliente);
 	Cliente dtoToCliente(ClienteDto dto);
 	
 	CuentaDto cuentaToDto(Cuenta cuenta);

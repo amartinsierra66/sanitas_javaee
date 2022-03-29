@@ -15,4 +15,5 @@ public class CuentaDto {
 	private int numeroCuenta;
 	private double saldo;
 	private String tipo;
+	
 }

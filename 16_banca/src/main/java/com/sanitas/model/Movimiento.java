@@ -27,6 +27,7 @@ public class Movimiento {
 	private int idMovimiento;
 	private double cantidad;
 	private Date fecha;
+	private String operacion;
 	@ManyToOne()
 	@JoinColumn(name="idCuenta",referencedColumnName = "numeroCuenta")
 	private Cuenta cuenta;

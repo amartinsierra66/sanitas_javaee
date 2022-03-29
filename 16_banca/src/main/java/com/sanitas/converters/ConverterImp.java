@@ -27,6 +27,16 @@ public class ConverterImp implements Converter {
 	}
 
 	@Override
+	public ClienteDto clienteToDtoSimple(Cliente cliente) {
+		return new ClienteDto(cliente.getDni(),
+				cliente.getNombre(),
+				cliente.getDireccion(),
+				cliente.getTelefono(),
+				null);
+		
+	}
+	
+	@Override
 	public Cliente dtoToCliente(ClienteDto dto) {
 		// TODO Auto-generated method stub
 		return null;
@@ -47,6 +57,7 @@ public class ConverterImp implements Converter {
 	public MovimientoDto movimientoToDto(Movimiento movimiento) {
 		return new MovimientoDto(movimiento.getCantidad(),
 								movimiento.getFecha(),
+								movimiento.getOperacion(),
 								cuentaToDto(movimiento.getCuenta()));
 	}
 
@@ -55,5 +66,9 @@ public class ConverterImp implements Converter {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+
+
+	
 
 }
