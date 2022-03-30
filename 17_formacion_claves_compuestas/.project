@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>16_banca</name>
+	<name>17_formacion_claves_compuestas</name>
 	<comment></comment>
 	<projects>
-		<project>banca_entities</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
