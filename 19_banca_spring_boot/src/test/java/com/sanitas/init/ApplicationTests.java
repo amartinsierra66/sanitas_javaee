@@ -11,9 +11,23 @@ import com.sanitas.service.CajeroService;
 @SpringBootTest
 class ApplicationTests {
 
+	@Autowired
+	CajeroService cajeroService;
+	
+	
 	@Test
-	void test() {
-		
+	void testCliente() {
+		assertEquals(6, cajeroService.clientes().size());
+	}
+	@Test
+	void testCuentasCliente() {
+		assertEquals(3, cajeroService.cuentasCliente(1111).size());
+	}
+	
+	@Test
+	void testMovimientosCuenta() {
+		assertEquals(11, cajeroService.movimientosCuenta(2000).size());
+		assertEquals(0, cajeroService.movimientosCuenta(7000).size());
 	}
 
 }
