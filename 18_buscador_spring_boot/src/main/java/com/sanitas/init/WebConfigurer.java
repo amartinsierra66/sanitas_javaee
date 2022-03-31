@@ -1,6 +1,7 @@
 package com.sanitas.init;
 
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
@@ -12,5 +13,5 @@ public class WebConfigurer implements WebMvcConfigurer {
 		registry.addViewController("volver").setViewName("inicio");
 		registry.addViewController("/").setViewName("inicio");
 	 }
-
+	
 }
